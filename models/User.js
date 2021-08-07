@@ -32,9 +32,9 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true
         },
-        checkedSkus: [
-            
-        ]
+        checkedUpc: {
+
+        }
     },
     {timestamps: true}
 );

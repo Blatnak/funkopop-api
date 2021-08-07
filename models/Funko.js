@@ -35,6 +35,7 @@ const FunkoSchema = new mongoose.Schema(
         },
         isExclusive: {
             type: Boolean,
+            required: true
         },
         exclusiveStore: {
             type: String

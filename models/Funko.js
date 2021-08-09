@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const uniqueValidator = require('mongoose-unique-validator');
 
 const FunkoSchema = new mongoose.Schema(
     {
@@ -6,9 +7,11 @@ const FunkoSchema = new mongoose.Schema(
             type: String,
             required: [true, "Funko name is required"]
         },
-        sku: {
-            type: String,
-            required: true
+        upc: {
+            type: Number,
+            required: true,
+            length: 12,
+            unique: true
         },
         handle: {
             type: String,
@@ -42,6 +45,8 @@ const FunkoSchema = new mongoose.Schema(
         }
     }
 );
+
+FunkoSchema.plugin(uniqueValidator, {message: 'already exists.'});
 
 const Funko = mongoose.model("funko", FunkoSchema)
 

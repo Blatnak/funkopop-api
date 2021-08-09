@@ -7,6 +7,13 @@ function getUsers(request, response) {
     })
 }
 
+function getUser(request, response) {
+    const id = request.params.id;
+    User.findOne({"_id": ObjectId(id)}).then(function (user) {
+         response.send(user);          
+    });
+}
+
 function createUser(request, response) {
     const user = new User(request.body)
     User.create(user).then(function (user) {
@@ -28,6 +35,7 @@ function updateUser(request, response) {
 
 module.exports = {
     getUsers,
+    getUser,
     createUser,
     updateUser
 }

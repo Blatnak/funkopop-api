@@ -3,10 +3,25 @@ const Funko = require('../models/Funko');
 function getFunkos(req, res) {
     const filters = {}
     if (req.query.isExclusive) {
-        filters.isExclusive = req.query.isExclusive === true;
+        filters.isExclusive = req.query.isExclusive === "true";
     }
-    if (req.query.isExclusive) {
-        filters.isExclusive = req.query.isExclusive === false;
+    if (req.query.exclusiveStore) {
+        filters.exclusiveStore = req.query.exclusiveStore;
+    }
+    if (req.query.name) {
+        filters.name = req.query.name;
+    }
+    if (req.query.upc) {
+        filters.upc = req.query.upc;
+    }
+    if (req.query.number) {
+        filters.number = req.query.number;
+    }
+    if (req.query.fandom) {
+        filters.fandom = req.query.fandom;
+    }
+    if (req.query.category) {
+        filters.category = req.query.category;
     }
     Funko.find(filters).then(function(funkos) {
         res.send(funkos)

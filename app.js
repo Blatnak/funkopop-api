@@ -18,7 +18,7 @@ mongoose.connect(
     { useUnifiedTopology: true, useNewUrlParser: true }
 );
 
-app.use('/v1', router);
+app.use('/', router);
 
 //Not found errors
 app.use(function (requires, response, next) {

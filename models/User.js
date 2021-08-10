@@ -12,7 +12,7 @@ const UserSchema = new mongoose.Schema(
         },
         password: {
             type: String,
-            required: [true, "Please intoduce a valid password between 3 and 20 characters"],
+            required: [true, "Please intoduce a valid password between 8 and 20 characters"],
             minLength: 8,
             maxLength: 20
         },
